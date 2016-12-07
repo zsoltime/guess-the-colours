@@ -1,0 +1,259 @@
+body
+  position: relative
+
+header
+  margin-top: 1.25rem
+  text-align: center
+
+h2,
+h3
+  font-weight: 300
+  margin: 0
+
+h2
+  font-size: 12vmin
+  font-weight: 400
+
+  span
+    font-weight: 300
+
+h3
+  font-size: 9vmin
+  font-weight: 300
+
+p
+  font-size: 8vmin
+  font-weight: 300
+  margin: 1.25rem 0 0
+  text-align: center
+
+  &:first-child
+    margin: 0
+
+  span
+    font-weight: 400
+
+  &.stats
+    display: flex
+    justify-content: space-around
+    margin: 0
+    width: 100%
+
+.hidden
+  display: none
+
+.timer
+  background: color(green)
+  border-right: .3vw solid color(red, dark)
+  height: 1vh
+  position: absolute
+  top: 99vh
+  width: 100vw
+
+  &.active
+    animation: countdown
+    animation-direction: forward
+    animation-duration: 15s
+    animation-fill-mode: forwards
+    animation-timing-function: linear
+
+.splash,
+.game
+  align-items: center
+  // @todo find a nice background
+  background: linear-gradient(#8e7fe0,transparent),linear-gradient(90deg,skyblue,transparent),linear-gradient(-90deg,#9e5292,transparent)
+  background-blend-mode: luminosity
+  bottom: 0
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  left: 0
+  opacity: 0
+  padding: 1.25rem
+  position: fixed
+  right: 0
+  top: 0
+  z-index: 9
+
+.splash
+  color: rgba(white, .8)
+
+.game
+  background: none
+
+.active
+  opacity: 1
+  z-index: 99
+
+.color
+  font-size: 9vmin
+  font-weight: 400
+  text-align: center
+  transition: color .3s ease
+
+.colors
+  display: flex
+  flex: 1 1 0
+  flex-wrap: wrap
+  justify-content: space-between
+  list-style: none outside none
+  margin: 0
+  padding: 0
+  width: 100%
+
+button
+  background: rgba(black, 0.5)
+  border: 0
+  border-radius: 4px
+  color: rgba(white, .7)
+  cursor: pointer
+  font-size: 8vmin
+  font-weight: 700
+  line-height: 1
+  padding: 1.25rem 0
+  text-align: center
+  transition: background .3s ease
+  user-select: none
+  width: 90%
+
+li
+  border: 5px solid rgba(black, .1)
+  cursor: pointer
+  transition: all .3s ease
+  user-select: none
+  width: 50%
+
+  &:hover
+    opacity: .8
+
+  &:first-child:nth-last-child(3),
+  &:first-child:nth-last-child(3) ~ li,
+  &:first-child:nth-last-child(9),
+  &:first-child:nth-last-child(9) ~ li,
+  &:first-child:nth-last-child(12),
+  &:first-child:nth-last-child(12) ~ li
+    width: 33.33333%
+
+  &:first-child:nth-last-child(4),
+  &:first-child:nth-last-child(4) ~ li,
+  &:first-child:nth-last-child(6),
+  &:first-child:nth-last-child(6) ~ li
+    width: 50%
+
+  &:first-child:nth-last-child(16),
+  &:first-child:nth-last-child(16) ~ li,
+  &:first-child:nth-last-child(20),
+  &:first-child:nth-last-child(20) ~ li
+    width: 25%
+
+  &:first-child:nth-last-child(25),
+  &:first-child:nth-last-child(25) ~ li,
+  &:first-child:nth-last-child(30),
+  &:first-child:nth-last-child(30) ~ li,
+  &:first-child:nth-last-child(35),
+  &:first-child:nth-last-child(35) ~ li,
+  &:first-child:nth-last-child(40),
+  &:first-child:nth-last-child(40) ~ li
+    width: 20%
+
+  &.wrong
+    opacity: 0
+
+#clicked
+  align-items: center
+  backface-visibility: hidden
+  color: #f0fff0
+  font-size: 1vh
+  display: none
+  height: 100%
+  justify-content: center
+  position: absolute
+  top: 0
+  text-shadow: 0 0 80px rgba(black, .5)
+  transform: translateZ(0)
+  width: 100%
+  -webkit-font-smoothing: subpixel-antialiased
+
+  &.play
+    animation: 1s linear reveal forwards
+
+@keyframes reveal
+  0%
+    display: flex
+    font-size: 1vh
+    opacity: 0
+
+  80%
+    font-size: 20vh
+    opacity: 1
+
+  100%
+    display: none
+    font-size: 30vh
+    opacity: 0
+
+@keyframes countdown
+  from
+    background: color(green)
+    width: 100vw
+
+  50%
+    background: color(amber)
+    width: 50vw
+
+  to
+    background: color(red)
+    width: 0
+
+.fade-in
+  animation: 1s ease-in forwards fadeIn
+
+.fade-out
+  animation: 1s ease-in forwards fadeOut
+
+@keyframes fadeOut
+  from
+    opacity: 1
+
+  to
+    opacity: 0
+
+@keyframes fadeIn
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+@media (orientation: landscape)
+
+  h3
+    font-size: 8vmin
+
+  p
+    font-size: 6vmin
+
+  li
+    &:first-child:nth-last-child(6),
+    &:first-child:nth-last-child(6) ~ li
+      width: 33.33335%
+
+    &:first-child:nth-last-child(12),
+    &:first-child:nth-last-child(12) ~ li
+      width: 25%
+
+    &:first-child:nth-last-child(20),
+    &:first-child:nth-last-child(20) ~ li
+      width: 20%
+
+    &:first-child:nth-last-child(30),
+    &:first-child:nth-last-child(30) ~ li
+      width: 16.66666%
+
+    &:first-child:nth-last-child(35),
+    &:first-child:nth-last-child(35) ~ li
+      width: 14.28571%
+
+    &:first-child:nth-last-child(40),
+    &:first-child:nth-last-child(40) ~ li
+      width: 12.5%

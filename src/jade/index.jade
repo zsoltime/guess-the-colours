@@ -1,0 +1,23 @@
+extends layout
+block title
+  title (4) CSS Colour Game
+block content
+  .timer#timer
+  .splash#splash.active
+    header.active
+      h3 Can You Find the
+      h2 #[span Named] Colours?
+    header.hidden
+      h3 Ouch,
+      h2 #[span Game]Over
+    .scores.hidden
+      p Your Score: #[span#score 0] points
+    .scores
+      p Highest Score: #[span#max-score 0] points
+      p Highest Level: #[span#max-level 0]
+    button#start Start a New Game
+  .game#game
+    #clicked
+    .color#name
+    ul.colors#colors
+    p.stats #[span Level: #[span#level 1]] #[span Lives: #[span#lives 3]]
